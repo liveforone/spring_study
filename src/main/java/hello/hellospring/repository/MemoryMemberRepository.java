@@ -1,9 +1,11 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
@@ -26,7 +28,7 @@ public class MemoryMemberRepository implements MemberRepository{
      */
 
 
-    @Override
+
     public Optional<Member> findByName(String name) {
         return store.values().stream()
                 .filter(member -> member.getName().equals(name))  //줄이 달라도 식이 다 끝나지 않으면 ; 붙이지 않기
