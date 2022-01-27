@@ -12,7 +12,7 @@ import java.util.Optional;
 @Service
 public class MemberService {
 
-    private MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
 
     @Autowired
     public MemberService(MemberRepository memberRepository) {
@@ -30,7 +30,7 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        MemberRepository.findByName()
+        memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다");
                 });
