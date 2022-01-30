@@ -1,5 +1,6 @@
 package hello.hellospring;
 
+
 import hello.hellospring.repository.*;
 import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,6 @@ public class SpringConfig {
 
     private final MemberRepository memberRepository;
 
-    @Autowired
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
